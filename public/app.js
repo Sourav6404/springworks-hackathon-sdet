@@ -22,11 +22,14 @@ async function loadCatalog() {
 }
 
 function onCheckToggle(e) {
-  // BUG (UI): only adds to the live preview, never subtracts on uncheck
+  const price = Number(e.target.dataset.price) || 0;
   if (e.target.checked) {
-    liveSubtotal += Number(e.target.dataset.price);
+    liveSubtotal += price;
+  } else {
+    liveSubtotal = Math.max(0, liveSubtotal - price);
   }
-  document.getElementById("live-subtotal").textContent = `₹${liveSubtotal}`;
+  const formatted = liveSubtotal === 0 ? "₹0.00" : `₹${liveSubtotal}`;
+  document.getElementById("live-subtotal").textContent = formatted;
 }
 
 function getSelectedCheckIds() {

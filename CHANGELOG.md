@@ -19,6 +19,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [1.0.0] - 2026-09-10
+
+### Fixed
+- Live subtotal now updates correctly when checks are selected and deselected.
+- Checkbox state remains synchronized with the displayed subtotal.
+
+---
+
 ## [0.9.0] - 2026-09-10
 
 ### Fixed
