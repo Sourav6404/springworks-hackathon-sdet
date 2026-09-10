@@ -64,8 +64,8 @@ app.post("/api/quote", (req, res) => {
   const { checkIds } = req.body;
   let { discountPercent } = req.body;
 
-  if (!Array.isArray(checkIds)) {
-    return res.status(500).json({ error: "checkIds must be an array" });
+  if (!Array.isArray(checkIds) || checkIds.length === 0) {
+    return res.status(400).json({ error: "checkIds must be a non-empty array" });
   }
 
   if (discountPercent === undefined) {
