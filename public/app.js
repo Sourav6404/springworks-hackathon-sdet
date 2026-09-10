@@ -31,7 +31,7 @@ function onCheckToggle(e) {
 
 function getSelectedCheckIds() {
   return Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(
-    (cb) => cb.id
+    (cb) => cb.value
   );
 }
 
@@ -65,7 +65,7 @@ async function getQuote() {
     document.getElementById("result-discount").textContent = data.discount;
     document.getElementById("result-gst").textContent = data.gst;
     // BUG (UI): displays the client-side live subtotal instead of the server's total
-    document.getElementById("result-total").textContent = liveSubtotal;
+    document.getElementById("result-total").textContent = data.total;
 
     // BUG (UI): success message shown unconditionally, even on non-2xx responses
     messageEl.textContent = "Quote generated successfully!";

@@ -19,6 +19,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [0.8.0] - 2026-09-10
+
+### Fixed
+- Quote summary now displays Subtotal, Discount, GST, and Total after successful quote generation.
+
+---
+
 ## [0.7.0] - 2026-09-10
 
 ### Fixed
