@@ -61,18 +61,22 @@ async function getQuote() {
     });
     const data = await res.json();
 
+    if (!res.ok || data.subtotal === undefined || data.total === undefined) {
+      messageEl.textContent = data.error || "Failed to generate quote.";
+      messageEl.className = "message error";
+      return;
+    }
+
     document.getElementById("result-subtotal").textContent = data.subtotal;
     document.getElementById("result-discount").textContent = data.discount;
     document.getElementById("result-gst").textContent = data.gst;
-    // BUG (UI): displays the client-side live subtotal instead of the server's total
     document.getElementById("result-total").textContent = data.total;
 
-    // BUG (UI): success message shown unconditionally, even on non-2xx responses
     messageEl.textContent = "Quote generated successfully!";
     messageEl.className = "message success";
   } catch (err) {
-    messageEl.textContent = "Quote generated successfully!";
-    messageEl.className = "message success";
+    messageEl.textContent = "Failed to generate quote.";
+    messageEl.className = "message error";
   }
 }
 
