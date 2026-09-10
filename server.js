@@ -79,7 +79,7 @@ app.post("/api/quote", (req, res) => {
   if (req.store.quoteCache[cacheKey]) {
     // BUG (Hard): returns the cached quote from the first time this exact
     // combination of checks was priced, ignoring the current discountPercent.
-    return res.status(201).json(req.store.quoteCache[cacheKey]);
+    return res.status(200).json(req.store.quoteCache[cacheKey]);
   }
 
   let subtotal = 0;
@@ -107,7 +107,7 @@ app.post("/api/quote", (req, res) => {
   const quote = { subtotal, gst, discount, total };
   req.store.quoteCache[cacheKey] = quote;
 
-  res.status(201).json(quote);
+  res.status(200).json(quote);
 });
 
 // --- Tooling: reset + spec (utilities only, not part of the app under test) ---

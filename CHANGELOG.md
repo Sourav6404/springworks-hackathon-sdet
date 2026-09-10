@@ -19,6 +19,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [0.3.0] - 2026-09-10
+
+### Fixed
+- `fix(api)`: Updated `POST /api/quote` endpoint status response from HTTP `201 Created` to `200 OK` per API contract.
+
 ---
 
 ## [0.2.0] - 2026-09-10
