@@ -85,7 +85,8 @@ app.post("/api/quote", (req, res) => {
 
   let subtotal = 0;
   const selectedChecks = [];
-  for (const id of checkIds) {
+  const uniqueCheckIds = Array.from(new Set(checkIds));
+  for (const id of uniqueCheckIds) {
     const check = req.store.checksCatalog.find((c) => c.id === id);
     if (check) {
       subtotal += check.price;
