@@ -56,7 +56,8 @@ app.use(express.static(path.join(__dirname, "public")));
 const GST_RATE = 0.18;
 
 app.get("/api/checks-catalog", (req, res) => {
-  res.json(req.store.checksCatalog);
+  const publicCatalog = req.store.checksCatalog.map(({ id, name, price }) => ({ id, name, price }));
+  res.json(publicCatalog);
 });
 
 app.post("/api/quote", (req, res) => {

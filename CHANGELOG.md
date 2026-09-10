@@ -19,6 +19,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [0.4.0] - 2026-09-10
+
+### Fixed
+- GET /api/checks-catalog now returns only id, name and price.
+- Removed exposure of internal vendorCost field.
+
+---
+
 ## [0.3.0] - 2026-09-10
 
 ### Fixed
