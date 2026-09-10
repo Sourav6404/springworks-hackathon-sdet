@@ -83,9 +83,17 @@ app.post("/api/quote", (req, res) => {
     return res.status(200).json(req.store.quoteCache[cacheKey]);
   }
 
+  const uniqueCheckIds = Array.from(new Set(checkIds));
+
+  for (const id of uniqueCheckIds) {
+    const checkExists = req.store.checksCatalog.some((c) => c.id === id);
+    if (!checkExists) {
+      return res.status(400).json({ error: "Invalid checkId" });
+    }
+  }
+
   let subtotal = 0;
   const selectedChecks = [];
-  const uniqueCheckIds = Array.from(new Set(checkIds));
   for (const id of uniqueCheckIds) {
     const check = req.store.checksCatalog.find((c) => c.id === id);
     if (check) {

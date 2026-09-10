@@ -19,6 +19,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [0.7.0] - 2026-09-10
+
+### Fixed
+- POST /api/quote now validates submitted checkIds against the catalog.
+- Unknown IDs return HTTP 400 Bad Request.
+
+---
+
 ## [0.6.0] - 2026-09-10
 
 ### Fixed
