@@ -19,6 +19,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `fix(ui)`: Guard success feedback banner until complete quote summary renders on 2xx response.
 - `fix(ui)`: Synchronize checkbox deselection state with live subtotal calculation.
 
+## [1.1.0] - 2026-09-10
+
+### Fixed
+- Quote Summary now formats Subtotal, Discount, GST, and Total using the ₹ symbol with two decimal places.
+- All monetary values follow a consistent Indian currency display format.
+
+---
+
 ## [1.0.0] - 2026-09-10
 
 ### Fixed

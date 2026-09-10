@@ -51,6 +51,11 @@ document.getElementById("discount-input").addEventListener("change", () => {
   discountValidated = true;
 });
 
+function formatCurrency(val) {
+  const num = Number(val) || 0;
+  return `₹${num.toFixed(2)}`;
+}
+
 async function getQuote() {
   const checkIds = getSelectedCheckIds();
   const discountPercent = Number(document.getElementById("discount-input").value) || 0;
@@ -70,10 +75,10 @@ async function getQuote() {
       return;
     }
 
-    document.getElementById("result-subtotal").textContent = data.subtotal;
-    document.getElementById("result-discount").textContent = data.discount;
-    document.getElementById("result-gst").textContent = data.gst;
-    document.getElementById("result-total").textContent = data.total;
+    document.getElementById("result-subtotal").textContent = formatCurrency(data.subtotal);
+    document.getElementById("result-discount").textContent = formatCurrency(data.discount);
+    document.getElementById("result-gst").textContent = formatCurrency(data.gst);
+    document.getElementById("result-total").textContent = formatCurrency(data.total);
 
     messageEl.textContent = "Quote generated successfully!";
     messageEl.className = "message success";
